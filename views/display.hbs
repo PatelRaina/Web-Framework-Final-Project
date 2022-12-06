@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+
+<body>
+    <h1>Restaurant Dara As Per Page, PerPage and Borough</h1>
+    <table border="1" width="100%">
+        <tr>
+            <th><b>Resturant ID</b></th>
+            <th><b>Name</b></th>
+            <th><b>Borough</b></th>
+            <th><b>Cuisine</b></th>
+            <th><b>Address</b></th>
+            <th><b>Grades</b></th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{this.restaurant_id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.borough}}</td>
+            <td>{{this.cuisine}}</td>   
+            <td>{{#each this.address as |a|}}
+                     {{a.building}}<br>{{a.street}}<br>{{a.zipcode}}
+                {{/each}}
+            </td>
+            <td>
+                {{#each this.grades as |g|}}
+                     {{g.grade}}={{g.score}},
+                {{/each}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</body>
+</html>
